@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Books
+from .models import Book
 
 
 #BASIC SERIALIZER
