@@ -17,7 +17,7 @@ class IsAdminOnly(BasePermission):
 class IsUserOrAdmin(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated #onlylogged in
-    
+      
     def has_object_permission(self, request, view, obj):
         if request.user.is_superuser: # Admin can access everything
             return True
@@ -49,7 +49,7 @@ class UsersAPIView(APIView):
         return Response({'status': 'success', 'data': serializer.data})
 
 
-#details of user, admin can seee anybody, user can see only his details and canupdate his details or delete prfile
+#details of user, admin can seee anybody, user can see only his details and can update his details or delete prfile
 class UserDetailAPIView(APIView):
     permission_classes = [IsUserOrAdmin] #admin and user
     def get(self, request, user_id):
